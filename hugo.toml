@@ -42,6 +42,11 @@ title = "GitHub"
 url = "https://github.com/nickclyde"
 
 [[params.socialLinks]]
+icon = "fa-brands fa-linkedin"
+title = "LinkedIn"
+url = "https://www.linkedin.com/in/nick-clyde/"
+
+[[params.socialLinks]]
 icon = "fa-solid fa-envelope"
 title = "Email"
 url = "mailto:nick@twindad.dev"
