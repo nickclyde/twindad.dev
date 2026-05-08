@@ -1,0 +1,27 @@
+{{ define "main" }}
+    {{ $posts := where .Site.RegularPages "Section" "posts" }}
+    {{ with index $posts 0 }}
+        <article>
+            <header class="content__header">
+                <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+                {{ if .Date }}<p><small>{{ .Date.Format "2006-01-02" }}</small></p>{{ end }}
+            </header>
+            <div class="content__body">
+                {{ .Summary }}
+                {{ if .Truncated }}<p><a href="{{ .Permalink }}">Read more &rarr;</a></p>{{ end }}
+            </div>
+        </article>
+    {{ end }}
+
+    {{ with after 1 $posts }}
+        <h2>Older posts</h2>
+        <ul>
+        {{ range . }}
+            <li>
+                {{ if .Date }}<small>{{ .Date.Format "2006-01-02" }}</small> — {{ end }}
+                <a href="{{ .Permalink }}">{{ .Title | markdownify }}</a>
+            </li>
+        {{ end }}
+        </ul>
+    {{ end }}
+{{ end }}
